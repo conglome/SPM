@@ -7,11 +7,13 @@ os.system("clear")
 print("Welcome to my Password Manager")
 print("\n1. Add Data")
 print("2. Show Data")
+print("3. Erase Container")
 
 user_input = input("Option - > ")
 
 if (user_input == "1"):
     
+    os.system("clear")
     input_master_password = input("Type your master password to proceed : ")
 
     if (input_master_password == master_password):
@@ -19,7 +21,7 @@ if (user_input == "1"):
         pass
 
     else:
-        print("Wrong Master Password. Exitting...")
+        print("\nWrong Master Password. Exitting...")
         quit()
     
     username = input("Username : ")
@@ -44,8 +46,10 @@ if (user_input == "2"):
     
     with open (".data/data.txt", 'r') as user_data_r:
 
+        os.system("clear")
         input_master_password = input("Type your Master Password to proceed : ")
         if (input_master_password == master_password):
+
             os.system("clear")
             user_data = user_data_r.read()
             needs_to_decode = str(user_data)
@@ -59,5 +63,24 @@ if (user_input == "2"):
             print(decoded_data)
 
         else:
-            print("Wrong Master Password. Exitting...")
+            print("\nWrong Master Password. Exitting...")
             quit()
+
+if (user_input == "3"):
+
+    os.system("clear")
+    confirm = input("Are you sure you want to erase all of your data ? (y/n) ")
+
+    if (confirm == 'y'):
+        with os.scandir('.data/') as entries:
+            for entry in entries:
+                if (entry.name == "data.txt"):
+                    os.system("shred -f -z -u -n 20 .data/data.txt")
+                    os.system("rm -rf .data")
+                else:
+                    print("\nData File doesn't currently exist. Exitting...")
+                    quit()
+
+    else:
+        print("\nExitting...")
+        quit()
