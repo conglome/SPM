@@ -21,12 +21,14 @@ if (user_input == "1"):
 
     else:
         print("Wrong Master Password. Exitting...")
+        quit()
     
     username = input("Username : ")
     password = input("Password : ")
     website = input("Website : ")
 
-    with open("data.txt", 'w') as f:
+    os.system("mkdir .data")
+    with open(".data/data.txt", 'w') as f:
 
         data = 'Website : ', website, ' | ', 'Username : ', username, ' | ', 'Password : ', password
 
@@ -41,7 +43,7 @@ if (user_input == "1"):
         
 if (user_input == "2"):
     
-    with open ("data.txt", 'r') as user_data_r:
+    with open (".data/data.txt", 'r') as user_data_r:
 
         input_master_password = input("Type your Master Password to proceed : ")
         if (input_master_password == master_password):
@@ -59,4 +61,11 @@ if (user_input == "2"):
 
         else:
             print("Wrong Master Password. Exitting...")
+            quit()
+
+
+        
+
+        
+
 
