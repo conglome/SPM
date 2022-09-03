@@ -2,6 +2,7 @@
 - ```python3 spm.py (spm is linux only)```
 
 ### Features
+- CLI
 - Base64 encoding 
 - Master Password Checking
 
