@@ -62,10 +62,3 @@ if (user_input == "2"):
         else:
             print("Wrong Master Password. Exitting...")
             quit()
-
-
-        
-
-        
-
-
